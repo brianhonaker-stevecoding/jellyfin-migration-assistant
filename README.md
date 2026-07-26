@@ -8,7 +8,7 @@ Linux is seeing a wave of Windows users ready to leave corporate lock-in behind,
 
 License: Apache-2.0.
 
-## For Windows Users
+## For Windows Source 
 
 Download the prebuilt Windows app from the latest release:
 
@@ -16,7 +16,7 @@ https://github.com/brianhonaker-stevecoding/jellyfin-migration-assistant/release
 
 Run `JellyfinMigrationAssistant-0.3.0.exe` on the Windows Jellyfin machine. The app detects the Jellyfin server folder, databases, config files, version, metadata location, and likely media roots, then creates one migration package to move to Linux. If it cannot confidently detect the media location, it asks the simple question that matters: where are the media files?
 
-## For Linux Target Users
+## For Linux Destination
 
 Download the target-side Debian package from the same release:
 
