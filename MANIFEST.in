@@ -1,0 +1,1 @@
+recursive-include packaging/windows *.ps1 *.spec
