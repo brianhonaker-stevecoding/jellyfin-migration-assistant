@@ -8,6 +8,14 @@ Linux is seeing a wave of Windows users ready to leave corporate lock-in behind,
 
 License: Apache-2.0.
 
+## For Windows Users
+
+Download the prebuilt Windows app from the latest release:
+
+https://github.com/brianhonaker-stevecoding/jellyfin-migration-assistant/releases/download/v0.3.0/JellyfinMigrationAssistant-0.3.0.exe
+
+Run `JellyfinMigrationAssistant-0.3.0.exe` on the Windows Jellyfin machine. The app detects the Jellyfin server folder, databases, config files, version, metadata location, and likely media roots, then creates one migration package to move to Linux. If it cannot confidently detect the media location, it asks the simple question that matters: where are the media files?
+
 V1.3 principles:
 
 - Audit before mutation.
@@ -30,8 +38,8 @@ windows-discover -> windows-export-package -> move-package-to-linux -> package-i
 
 Current implemented primitives:
 
-- Windows GUI launcher: `jellyfin-migration-assistant` opens a simple package-creation wizard.
-- Windows executable build: PyInstaller spec and `packaging/windows/build-exe.ps1` produce `JellyfinMigrationAssistant.exe`.
+- Windows GUI app: the release includes a prebuilt `JellyfinMigrationAssistant-0.3.0.exe` package-creation wizard.
+- Windows executable build support: PyInstaller spec and `packaging/windows/build-exe.ps1` are available for contributors who want to build from source.
 - Version gate: v1 apply mode blocks source/target version mismatches.
 - Transport gate: v1.1 apply mode expects native Jellyfin backup/restore, same-version target install, stopped/held target service, and a clean restored-state snapshot before repair.
 - Windows export: detects Windows Jellyfin source state and creates a zip package with `manifest.yaml`, `source-report.json`, database snapshots, and selected config files.
@@ -66,12 +74,12 @@ jf-migrate diagnose-validation --health-ok --playback-status 500 --windows-log-t
 jf-migrate rollback-plan --run-directory runs/2026-07-26 --database-snapshot snapshots/library.db
 ```
 
-Build the Windows GUI executable on Windows:
+Build the Windows GUI executable from source:
 
 ```powershell
 .\packaging\windows\build-exe.ps1
 ```
 
-The generated app wraps the same exporter as `jf-migrate windows-export`: it detects Jellyfin state, shows detected media locations, asks the user to choose a media folder only when needed, and creates one `jellyfin-migration.zip` package.
+Most users should download the release exe instead of building it. The generated app wraps the same exporter as `jf-migrate windows-export`: it detects Jellyfin state, shows detected media locations, asks the user to choose a media folder only when needed, and creates one `jellyfin-migration.zip` package.
 
 Licensing/provenance note: this codebase is an original Apache-2.0 implementation. AGPL Jellyfin migrator projects were reviewed as prior art only; do not copy AGPL-derived code into this project without an explicit licensing decision.
