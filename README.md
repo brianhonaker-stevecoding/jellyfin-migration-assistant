@@ -16,6 +16,24 @@ https://github.com/brianhonaker-stevecoding/jellyfin-migration-assistant/release
 
 Run `JellyfinMigrationAssistant-0.3.0.exe` on the Windows Jellyfin machine. The app detects the Jellyfin server folder, databases, config files, version, metadata location, and likely media roots, then creates one migration package to move to Linux. If it cannot confidently detect the media location, it asks the simple question that matters: where are the media files?
 
+## For Linux Target Users
+
+Download the target-side wheel from the same release:
+
+https://github.com/brianhonaker-stevecoding/jellyfin-migration-assistant/releases/download/v0.3.0/jellyfin_migration_assistant-0.3.0-py3-none-any.whl
+
+Install it on the Debian/Ubuntu Jellyfin target:
+
+```bash
+python3 -m venv ~/jellyfin-migration-assistant
+~/jellyfin-migration-assistant/bin/python -m pip install ./jellyfin_migration_assistant-0.3.0-py3-none-any.whl
+~/jellyfin-migration-assistant/bin/jf-migrate package-inspect ./jellyfin-migration.zip
+```
+
+The Linux side is the guardrail and repair CLI. It inspects the Windows-created package, verifies the native backup/restore transport plan, checks mount and service safety, audits database paths, plans metadata and rollback work, and blocks unsafe apply-mode shortcuts before Jellyfin gets a normal startup scan.
+
+This alpha release ships the Linux side as a Python wheel. A native `.deb` package is planned so target installs can become as simple as the Windows exe.
+
 V1.3 principles:
 
 - Audit before mutation.
