@@ -2,6 +2,8 @@
 
 Validation-first assistant for Windows Jellyfin to Debian/Ubuntu native Jellyfin migrations.
 
+Linux is seeing a wave of Windows users ready to leave corporate lock-in behind, but a carefully tuned Jellyfin server can be one of the things that makes the move feel risky. Jellyfin Migration Assistant is built for that moment: package the Windows install, carry it to Linux, and preserve the library experience your household already expects while the tool audits, blocks unsafe shortcuts, and guides the platform-specific repair work.
+
 **Alpha software:** this project is functional enough for cautious testing, but it is not a no-caveats migration guarantee. Use the dry-run/audit flow first, keep native Jellyfin backups, and snapshot the restored target before applying repairs.
 
 License: Apache-2.0.
