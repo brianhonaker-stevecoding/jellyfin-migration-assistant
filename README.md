@@ -18,11 +18,22 @@ Run `JellyfinMigrationAssistant-0.3.0.exe` on the Windows Jellyfin machine. The 
 
 ## For Linux Target Users
 
-Download the target-side wheel from the same release:
+Download the target-side Debian package from the same release:
+
+https://github.com/brianhonaker-stevecoding/jellyfin-migration-assistant/releases/download/v0.3.0/jellyfin-migration-assistant_0.3.0-1_all.deb
+
+Install it on the Debian/Ubuntu Jellyfin target:
+
+```bash
+sudo apt install ./jellyfin-migration-assistant_0.3.0-1_all.deb
+jf-migrate package-inspect ./jellyfin-migration.zip
+```
+
+The Python wheel is also available for users who prefer virtual environments:
 
 https://github.com/brianhonaker-stevecoding/jellyfin-migration-assistant/releases/download/v0.3.0/jellyfin_migration_assistant-0.3.0-py3-none-any.whl
 
-Install it on the Debian/Ubuntu Jellyfin target:
+Wheel install example:
 
 ```bash
 python3 -m venv ~/jellyfin-migration-assistant
@@ -32,7 +43,7 @@ python3 -m venv ~/jellyfin-migration-assistant
 
 The Linux side is the guardrail and repair CLI. It inspects the Windows-created package, verifies the native backup/restore transport plan, checks mount and service safety, audits database paths, plans metadata and rollback work, and blocks unsafe apply-mode shortcuts before Jellyfin gets a normal startup scan.
 
-This alpha release ships the Linux side as a Python wheel. A native `.deb` package is planned so target installs can become as simple as the Windows exe.
+This alpha release ships the Linux side as both a native `.deb` and a Python wheel. Most Debian/Ubuntu users should use the `.deb`.
 
 V1.3 principles:
 

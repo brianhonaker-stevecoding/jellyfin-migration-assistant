@@ -1,1 +1,2 @@
 recursive-include packaging/windows *.ps1 *.spec
+recursive-include packaging/debian *.sh

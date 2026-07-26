@@ -8,6 +8,7 @@ Initial public alpha release.
 - Added PyInstaller Windows build support and validated `JellyfinMigrationAssistant.exe` on a Windows build host.
 - Added Windows source discovery/export package flow.
 - Added Linux package inspection and native-restore transport gates.
+- Added Debian package build support for the Linux target CLI.
 - Added conservative semantic SQLite path classification, recovery tickets, metadata planning, rollback planning, validation diagnosis, and systemd CIFS mount planning.
 - Hardened release behavior after review:
   - unknown/non-comparable Jellyfin versions block apply mode;
