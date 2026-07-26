@@ -2,6 +2,8 @@
 
 ## 0.3.0 - 2026-07-26
 
+Initial public alpha release.
+
 - Added Windows GUI wizard entry point `jellyfin-migration-assistant`.
 - Added PyInstaller Windows build support and validated `JellyfinMigrationAssistant.exe` on the transcoder.
 - Added Windows source discovery/export package flow.

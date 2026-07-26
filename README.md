@@ -2,6 +2,10 @@
 
 Validation-first assistant for Windows Jellyfin to Debian/Ubuntu native Jellyfin migrations.
 
+**Alpha software:** this project is functional enough for cautious testing, but it is not a no-caveats migration guarantee. Use the dry-run/audit flow first, keep native Jellyfin backups, and snapshot the restored target before applying repairs.
+
+License: Apache-2.0.
+
 V1.3 principles:
 
 - Audit before mutation.
@@ -68,4 +72,4 @@ Build the Windows GUI executable on Windows:
 
 The generated app wraps the same exporter as `jf-migrate windows-export`: it detects Jellyfin state, shows detected media locations, asks the user to choose a media folder only when needed, and creates one `jellyfin-migration.zip` package.
 
-Licensing/provenance note: this codebase is an original implementation for Brian's migration workflow. AGPL Jellyfin migrator projects were reviewed as prior art only; do not copy AGPL-derived code into this project without an explicit licensing decision.
+Licensing/provenance note: this codebase is an original Apache-2.0 implementation for Brian's migration workflow. AGPL Jellyfin migrator projects were reviewed as prior art only; do not copy AGPL-derived code into this project without an explicit licensing decision.
