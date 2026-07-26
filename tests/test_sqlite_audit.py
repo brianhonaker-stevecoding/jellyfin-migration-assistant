@@ -10,7 +10,7 @@ def test_scan_sqlite_for_path_tokens_finds_windows_paths(tmp_path):
         connection.execute(
             "insert into BaseItems values (?, ?, ?)",
             (
-                r"\\192.168.1.177\media\MOVIES\Example\movie.mkv",
+                r"\\nas.example.local\media\MOVIES\Example\movie.mkv",
                 '{"image": "C:\\\\ProgramData\\\\Jellyfin\\\\Server\\\\metadata\\\\People\\\\A\\\\folder.jpg"}',
                 "Example",
             ),
@@ -24,7 +24,7 @@ def test_scan_sqlite_for_path_tokens_finds_windows_paths(tmp_path):
         ("BaseItems", "Path"),
         ("BaseItems", "Data"),
     ]
-    assert any(r"\\192.168.1.177" in hit.value for hit in hits)
+    assert any(r"\\nas.example.local" in hit.value for hit in hits)
     assert any("/mnt/media" in hit.value for hit in hits)
 
 

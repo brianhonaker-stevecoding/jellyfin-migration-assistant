@@ -375,7 +375,7 @@ transport:
   auto_start_disabled: true
   restored_state_snapshot: true
 mappings:
-  - from: "\\\\\\\\192.168.1.177\\\\media"
+  - from: "\\\\\\\\nas.example.local\\\\media"
     to: "/mnt/media"
 validation:
   expected_libraries:

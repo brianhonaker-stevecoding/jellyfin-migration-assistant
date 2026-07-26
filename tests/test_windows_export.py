@@ -21,7 +21,7 @@ def _fake_windows_appdata(tmp_path):
         connection.execute(
             "insert into BaseItems values (?, ?, ?)",
             (
-                r"\\192.168.1.177\media\Movies\Example\movie.mkv",
+                r"\\nas.example.local\media\Movies\Example\movie.mkv",
                 "{}",
                 "Example",
             ),
@@ -54,7 +54,7 @@ def test_windows_discovery_detects_database_version_and_media_root(tmp_path):
 
     assert discovery.databases == (str(appdata / "data" / "library.db"),)
     assert discovery.detected_version == "10.11.4"
-    assert discovery.media_roots == (r"\\192.168.1.177\media",)
+    assert discovery.media_roots == (r"\\nas.example.local\media",)
     assert discovery.metadata_root == str(appdata / "metadata")
     assert discovery.tickets == ()
 
@@ -82,7 +82,7 @@ def test_windows_export_creates_manifest_report_and_database_package(tmp_path):
 
     assert {"manifest.yaml", "source-report.json", "data/library.db", "config/system.xml"} <= names
     assert manifest["transport"]["mode"] == "native_backup_restore"
-    assert manifest["mappings"] == [{"from": r"\\192.168.1.177\media", "to": "/mnt/media"}]
+    assert manifest["mappings"] == [{"from": r"\\nas.example.local\media", "to": "/mnt/media"}]
     assert package.manifest_path == "manifest.yaml"
     assert package.report_path == "source-report.json"
     assert not (tmp_path / "jellyfin-migration").exists()

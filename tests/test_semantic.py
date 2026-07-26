@@ -8,7 +8,7 @@ def test_semantic_classifier_marks_media_paths_mutable():
         table="BaseItems",
         column="Path",
         rowid=1,
-        value=r"\\192.168.1.177\media\Movies\Example\movie.mkv",
+        value=r"\\nas.example.local\media\Movies\Example\movie.mkv",
         tokens=(r"\\",),
     )
 

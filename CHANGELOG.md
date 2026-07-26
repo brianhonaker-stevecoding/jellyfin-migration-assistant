@@ -5,7 +5,7 @@
 Initial public alpha release.
 
 - Added Windows GUI wizard entry point `jellyfin-migration-assistant`.
-- Added PyInstaller Windows build support and validated `JellyfinMigrationAssistant.exe` on the transcoder.
+- Added PyInstaller Windows build support and validated `JellyfinMigrationAssistant.exe` on a Windows build host.
 - Added Windows source discovery/export package flow.
 - Added Linux package inspection and native-restore transport gates.
 - Added conservative semantic SQLite path classification, recovery tickets, metadata planning, rollback planning, validation diagnosis, and systemd CIFS mount planning.
@@ -29,4 +29,4 @@ Verification:
 - `pytest -q`: 45 passed
 - `python -m build`: succeeded
 - Fresh wheel install and CLI smoke gates: passed
-- Windows PyInstaller build on `DESKTOP-4AMESK1`: passed
+- Windows PyInstaller build on `a Windows build host`: passed

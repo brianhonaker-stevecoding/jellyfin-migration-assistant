@@ -10,7 +10,7 @@ from jellyfin_migration_assistant.mounts import (
 def test_mount_readability_blocks_apply_mode():
     tickets = mount_preflight_tickets(
         MountPreflightInput(
-            source_unc=r"\\192.168.1.177\media",
+            source_unc=r"\\nas.example.local\media",
             target_mountpoint=Path("/mnt/media"),
             mount_readable_by_service_user=False,
         ),
@@ -24,7 +24,7 @@ def test_mount_readability_blocks_apply_mode():
 def test_mount_readability_can_be_repair_log_only_in_audit_mode():
     tickets = mount_preflight_tickets(
         MountPreflightInput(
-            source_unc=r"\\192.168.1.177\media",
+            source_unc=r"\\nas.example.local\media",
             target_mountpoint=Path("/mnt/media"),
             mount_readable_by_service_user=False,
         ),
@@ -36,7 +36,7 @@ def test_mount_readability_can_be_repair_log_only_in_audit_mode():
 
 def test_mount_plan_generates_mount_automount_and_drop_in_without_credentials_inline():
     plan = plan_systemd_cifs_mount(
-        source_unc=r"//192.168.1.177/media",
+        source_unc=r"//nas.example.local/media",
         target_mountpoint=Path("/mnt/media"),
         credentials_file=Path("/etc/jellyfin/media.credentials"),
     )

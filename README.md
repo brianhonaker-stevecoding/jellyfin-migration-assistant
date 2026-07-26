@@ -58,7 +58,7 @@ jf-migrate check-manifest manifest.yaml --apply
 jf-migrate transport-plan manifest.yaml --apply
 jf-migrate database-precheck jellyfin.db --repair-log repair-log.md
 jf-migrate schema-snapshot jellyfin.db
-jf-migrate mount-plan --source-unc //192.168.1.177/media --target-mountpoint /mnt/media --credentials-file /etc/jellyfin/media.credentials
+jf-migrate mount-plan --source-unc //nas.example.local/media --target-mountpoint /mnt/media --credentials-file /etc/jellyfin/media.credentials
 jf-migrate metadata-plan jellyfin.db --source-metadata-root 'C:\ProgramData\Jellyfin\Server\metadata' --target-metadata-root /var/lib/jellyfin/metadata
 jf-migrate diagnose-validation --health-ok --playback-status 500 --windows-log-token 'C:\ProgramData\Jellyfin'
 jf-migrate rollback-plan --run-directory runs/2026-07-26 --database-snapshot snapshots/library.db
@@ -72,4 +72,4 @@ Build the Windows GUI executable on Windows:
 
 The generated app wraps the same exporter as `jf-migrate windows-export`: it detects Jellyfin state, shows detected media locations, asks the user to choose a media folder only when needed, and creates one `jellyfin-migration.zip` package.
 
-Licensing/provenance note: this codebase is an original Apache-2.0 implementation for Brian's migration workflow. AGPL Jellyfin migrator projects were reviewed as prior art only; do not copy AGPL-derived code into this project without an explicit licensing decision.
+Licensing/provenance note: this codebase is an original Apache-2.0 implementation. AGPL Jellyfin migrator projects were reviewed as prior art only; do not copy AGPL-derived code into this project without an explicit licensing decision.
